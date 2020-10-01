@@ -6,6 +6,7 @@ services:
       - web
     volumes:
       - ./war:/home/hw
+    #  - warvol:/home/hw
   
   web:
     build: web
@@ -13,3 +14,7 @@ services:
       - collector
     volumes_from:
       - collector
+    depends_on: collector
+
+#volumes:
+#  warvol:

@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 
 ENV HW /home/hw
-RUN mkdir -p "$HW"
+#RUN mkdir -p "$HW"
 WORKDIR $HW
 
 RUN apt-get update && apt-get install -y default-jdk git maven \
