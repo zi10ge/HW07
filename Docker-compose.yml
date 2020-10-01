@@ -10,7 +10,7 @@ services:
   web:
     build: web
     volumes_from:
-      - collector
+      - warvol:/home/hw
 
 volumes:
   warvol:
