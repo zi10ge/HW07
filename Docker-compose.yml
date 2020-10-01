@@ -1,16 +1,22 @@
-version: '2'
+version: '2.4'
 services:
   collector:
     build: collector
-    links:
-      - web
     volumes:
-      - warvol:/home/hw
+      - type: volume
+        source: warvol
+        target: /home/war
   
   web:
     build: web
-    volumes_from:
-      - warvol:/home/hw
+    volumes: 
+      - type: volume
+        source: warvol
+        target: /usr/local/tomcat/webapps
+    depends_on:
+      - collector
+    links:
+      - collector
 
 volumes:
   warvol:
