@@ -5,16 +5,12 @@ services:
     links:
       - web
     volumes:
-      - ./war:/home/hw
-    #  - warvol:/home/hw
+      - warvol:/home/hw
   
   web:
     build: web
-    links:
-      - collector
     volumes_from:
       - collector
-    depends_on: collector
 
-#volumes:
-#  warvol:
+volumes:
+  warvol:
