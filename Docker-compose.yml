@@ -1,0 +1,15 @@
+version: '2'
+services:
+  collector:
+    build: collector
+    links:
+      - web
+    volumes:
+      - ./war:/home/hw
+  
+  web:
+    build: web
+    links:
+      - collector
+    volumes_from:
+      - collector
